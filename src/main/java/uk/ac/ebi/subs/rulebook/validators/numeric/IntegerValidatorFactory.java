@@ -1,4 +1,4 @@
-package uk.ac.ebi.subs.rulebook.validators.text;
+package uk.ac.ebi.subs.rulebook.validators.numeric;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.ac.ebi.subs.rulebook.validation.Validator;
@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by Dave on 10/06/2017.
  */
-public class FreeTextValidatorFactory implements ValidatorFactory{
+public class IntegerValidatorFactory implements ValidatorFactory{
 
     private ObjectMapper mapper;
 
@@ -20,17 +20,22 @@ public class FreeTextValidatorFactory implements ValidatorFactory{
 
     @Override
     public String getValidatorTypeName() {
-        return "FreeText";
+        return "Integer";
     }
 
     @Override
     public Validator buildValidator(String configJson) {
         try {
-            FreeTextValidatorConfig configObject = mapper.readValue(configJson,FreeTextValidatorConfig.class);
-            return new FreeTextValueValidator(configObject);
+            IntegerValidatorConfig configObject = mapper.readValue(configJson,IntegerValidatorConfig.class);
+            return new IntegerValidator(configObject);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+
+
+
+
     }
 
 }

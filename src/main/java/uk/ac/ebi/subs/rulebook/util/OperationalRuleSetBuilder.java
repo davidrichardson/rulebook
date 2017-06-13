@@ -46,7 +46,7 @@ public class OperationalRuleSetBuilder {
 
                 rule.setName(ruleDocument.getName());
                 rule.setDescription(ruleDocument.getDescription());
-                rule.setLocatorPath(ruleDocument.getLocatorPath());
+                rule.setLocatorPath(ruleDocument.getLocator());
                 rule.setRequirementStrength(ruleDocument.getRequirementStrength());
                 rule.setMultiplicty(ruleDocument.getMultiplicty());
 

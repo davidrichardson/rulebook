@@ -7,30 +7,29 @@ import uk.ac.ebi.subs.rulebook.validation.ValidatorFactory;
 import java.io.IOException;
 
 /**
- * Created by Dave on 10/06/2017.
+ * Created by davidr on 13/06/2017.
  */
-public class FreeTextValidatorFactory implements ValidatorFactory{
+public class EnumeratedValueValidatorFactory implements ValidatorFactory {
 
     private ObjectMapper mapper;
 
     @Override
-    public void setObjectMapper(ObjectMapper objectMapper) {
-        mapper = objectMapper;
-    }
-
-    @Override
     public String getValidatorTypeName() {
-        return "FreeText";
+        return "EnumeratedValue";
     }
 
     @Override
     public Validator buildValidator(String configJson) {
         try {
-            FreeTextValidatorConfig configObject = mapper.readValue(configJson,FreeTextValidatorConfig.class);
-            return new FreeTextValueValidator(configObject);
+            EnumeratedValueValidatorConfig configObject = mapper.readValue(configJson, EnumeratedValueValidatorConfig.class);
+            return new EnumeratedValueValidator(configObject);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    @Override
+    public void setObjectMapper(ObjectMapper objectMapper) {
+        this.mapper = objectMapper;
+    }
 }

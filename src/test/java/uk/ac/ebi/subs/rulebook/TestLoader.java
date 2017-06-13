@@ -9,6 +9,7 @@ import uk.ac.ebi.subs.rulebook.model.operational.RuleSet;
 import uk.ac.ebi.subs.rulebook.util.OperationalRuleSetBuilder;
 import uk.ac.ebi.subs.rulebook.util.RuleSetDocumentLoader;
 import uk.ac.ebi.subs.rulebook.util.ValidatorFactoryLoader;
+import uk.ac.ebi.subs.rulebook.validation.Validator;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -68,6 +69,21 @@ public class TestLoader {
         assertThat(ruleGroup.getDescription(),nullValue());
         assertThat(ruleGroup.getRestrictionType(),equalTo(RestrictionType.any));
 
+
+        assertThat(ruleGroup.getRules(),hasSize(2));
+        assertThat(ruleGroup.getRules().get(0).getValidators(),hasSize(1));
+        assertThat(ruleGroup.getRules().get(1).getValidators(),hasSize(2));
+
+        spaceShipRuleSet
+                .getRuleGroups()
+                .stream().flatMap(rg -> rg.getRules().stream())
+                .flatMap(rule -> rule.getValidators().stream())
+                .forEach(validator -> checkValidator(validator));
+
+    }
+
+    private void checkValidator(Validator validator) {
+        assertThat(validator,notNullValue());
     }
 
 }

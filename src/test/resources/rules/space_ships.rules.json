@@ -8,14 +8,30 @@
       "rules": [
         {
           "name": "role",
+          "locator": {"path": "$.attributes[?(@.name == 'role')]"},
           "requirementStrength": "mandatory",
+          "multiplicty": "many",
           "validators": [
-            {"type": "FreeText", "config": {"minNumberOfCharacters": 3, "maxNumberOfCharacters": 4}}
+            {
+              "type": "FreeText", "config": {"minNumberOfCharacters": 3, "maxNumberOfCharacters": 50,  "locator": {"path": "$.value"}}
+            }
+          ]
+        },
+        {
+          "name": "crew capacity",
+          "locator": {"path": "$.attributes[?(@.name == 'crew_capacity')]"},
+          "requirementStrength": "mandatory",
+          "multiplicty": "one",
+          "validators": [
+            {
+              "type": "Integer", "config": {"minValue": 0,  "locator": {"path": "$.value"}}
+            },
+            {
+              "type": "EnumeratedValue", "config": {"permittedValues": ["people"],  "locator": {"path": "$.units"}}
+            }
           ]
         }
-
       ]
     }
-
   ]
 }

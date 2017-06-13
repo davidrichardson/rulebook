@@ -5,6 +5,6 @@ package uk.ac.ebi.subs.rulebook.model;
  */
 public class JsonCondition {
 
-    private JsonPath path;
+    private JsonObjectLocator path;
 
 }

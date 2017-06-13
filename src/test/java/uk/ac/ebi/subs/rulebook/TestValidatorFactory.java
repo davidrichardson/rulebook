@@ -5,6 +5,8 @@ import uk.ac.ebi.subs.rulebook.validation.ValidationResult;
 import uk.ac.ebi.subs.rulebook.validation.Validator;
 import uk.ac.ebi.subs.rulebook.validation.ValidatorFactory;
 
+import java.util.LinkedHashMap;
+
 /**
  * Created by Dave on 10/06/2017.
  */
@@ -24,7 +26,7 @@ public class TestValidatorFactory implements ValidatorFactory {
     public Validator buildValidator(String config) {
         return new Validator() {
             @Override
-            public ValidationResult validate(String entity) {
+            public ValidationResult validate(LinkedHashMap<String,String> entity) {
                 return new ValidationResult();
             }
         };

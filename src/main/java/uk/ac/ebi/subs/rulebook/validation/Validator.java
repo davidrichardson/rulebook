@@ -1,8 +1,15 @@
 package uk.ac.ebi.subs.rulebook.validation;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 /**
  * Created by Dave on 09/06/2017.
  */
 public interface Validator {
-    public ValidationResult validate(String entity);
+
+    ValidationResult validate(LinkedHashMap<String, String> entity);
+
+    default List<String> validValues(){return Collections.emptyList();}
 }

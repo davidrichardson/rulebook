@@ -5,7 +5,7 @@ package uk.ac.ebi.subs.rulebook.model;
  */
 public enum Multiplicty {
 
-    ONE,
-    MANY;
+    one,
+    many;
 
 }
