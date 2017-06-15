@@ -2,8 +2,6 @@ package uk.ac.ebi.subs.rulebook;
 
 import org.junit.Test;
 import uk.ac.ebi.subs.rulebook.util.ValidatorFactoryLoader;
-import uk.ac.ebi.subs.rulebook.validation.ValidationResult;
-import uk.ac.ebi.subs.rulebook.validation.Validator;
 import uk.ac.ebi.subs.rulebook.validation.ValidatorFactory;
 
 import java.util.Map;
@@ -25,7 +23,7 @@ public class TestLoadingByReflection {
         assertThat(namedFactories.containsKey("reflection load test validator"),is(true));
 
         ValidatorFactory factory = namedFactories.get("reflection load test validator");
-        assertThat(factory.getClass(),equalTo(TestValidatorFactory.class));
+        assertThat(factory.getClass(),equalTo(TestValidatorFactoryImpl.class));
 
 
     }

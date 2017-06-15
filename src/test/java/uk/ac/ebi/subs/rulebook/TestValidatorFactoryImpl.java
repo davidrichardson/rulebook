@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 /**
  * Created by Dave on 10/06/2017.
  */
-public class TestValidatorFactory implements ValidatorFactory {
+public class TestValidatorFactoryImpl implements ValidatorFactory {
 
     @Override
     public void setObjectMapper(ObjectMapper objectMapper) {

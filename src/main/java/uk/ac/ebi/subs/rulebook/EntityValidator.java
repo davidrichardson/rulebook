@@ -42,15 +42,18 @@ public class EntityValidator {
 
         for (RuleGroup ruleGroup : ruleSet.getRuleGroups()){
 
-            //TODO check condition of rule group before invoking
-            //TODO tally up number of matches against Restriction type
-            for (Rule rule : ruleGroup.getRules()){
+            if (ruleGroup.getCondition() == null || ruleGroup.getCondition().match(document) ) {
+                //TODO tally up number of matches against Restriction type
+                for (Rule rule : ruleGroup.getRules()){
 
-                results.addAll(
-                        validateForRule(document,rule)
-                );
+                    results.addAll(
+                            validateForRule(document,rule)
+                    );
 
+                }
             }
+
+
 
         }
 

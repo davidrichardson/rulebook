@@ -32,6 +32,24 @@
           ]
         }
       ]
+    },
+    {
+      "name": "warship specific",
+      "restrictionType": "any",
+      "condition": {"locator": {"path": "$.attributes[?(@.name == 'role' && @.value == 'warship')]"}},
+      "rules": [
+        {
+          "name": "weapon",
+          "locator": {"path": "$.attributes[?(@.name == 'weapon')]"},
+          "requirementStrength": "recommended",
+          "multiplicty": "many",
+          "validators": [
+            {
+              "type": "FreeText", "config": {"minNumberOfCharacters": 3, "maxNumberOfCharacters": 50,  "locator": {"path": "$.value"}}
+            }
+          ]
+        }
+      ]
     }
   ]
 }
