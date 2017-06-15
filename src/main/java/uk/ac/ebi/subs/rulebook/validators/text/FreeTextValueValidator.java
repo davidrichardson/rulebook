@@ -41,4 +41,9 @@ public class FreeTextValueValidator implements Validator {
 
         return ValidationResult.of(outcome);
     }
+
+    @Override
+    public String getColumnNameModifier() {
+        return config.getColumnNameModifier();
+    }
 }

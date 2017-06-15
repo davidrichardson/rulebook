@@ -29,6 +29,11 @@ public class TestValidatorFactoryImpl implements ValidatorFactory {
             public ValidationResult validate(LinkedHashMap<String,String> entity) {
                 return new ValidationResult();
             }
+
+            @Override
+            public String getColumnNameModifier() {
+                return "";
+            }
         };
     }
 }

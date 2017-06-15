@@ -13,4 +13,5 @@ public class EnumeratedValueValidatorConfig {
 
     private Set<String> permittedValues;
     private JsonValueLocator locator = JsonValueLocator.of("$.value");
+    private String columnNameModifier = "";
 }

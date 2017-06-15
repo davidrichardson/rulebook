@@ -11,4 +11,5 @@ public class FreeTextValidatorConfig {
     private Integer minNumberOfCharacters;
     private Integer maxNumberOfCharacters;
     private JsonValueLocator locator = JsonValueLocator.of("$.value");
+    private String columnNameModifier = "";
 }

@@ -41,4 +41,9 @@ public class EnumeratedValueValidator implements Validator {
     public List<String> validValues() {
         return new LinkedList<>(config.getPermittedValues());
     }
+
+    @Override
+    public String getColumnNameModifier() {
+        return config.getColumnNameModifier();
+    }
 }

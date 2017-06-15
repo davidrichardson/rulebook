@@ -11,4 +11,5 @@ public class IntegerValidatorConfig {
     private Integer minValue;
     private Integer maxValue;
     private JsonValueLocator locator;
+    private String columnNameModifier = "";
 }

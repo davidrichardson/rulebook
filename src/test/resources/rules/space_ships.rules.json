@@ -27,7 +27,7 @@
               "type": "Integer", "config": {"minValue": 0,  "locator": {"path": "$.value"}}
             },
             {
-              "type": "EnumeratedValue", "config": {"permittedValues": ["people"],  "locator": {"path": "$.units"}}
+              "type": "EnumeratedValue", "config": {"permittedValues": ["people"],  "locator": {"path": "$.units"}, "columnNameModifier": " units"}
             }
           ]
         }

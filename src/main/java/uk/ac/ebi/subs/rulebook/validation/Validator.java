@@ -11,5 +11,7 @@ public interface Validator {
 
     ValidationResult validate(LinkedHashMap<String, String> entity);
 
+    String getColumnNameModifier();
+
     default List<String> validValues(){return Collections.emptyList();}
 }
