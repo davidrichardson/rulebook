@@ -1,5 +1,7 @@
 package uk.ac.ebi.subs.rulebook.validation;
 
+import uk.ac.ebi.subs.rulebook.model.JsonValueLocator;
+
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -11,7 +13,8 @@ public interface Validator {
 
     ValidationResult validate(LinkedHashMap<String, String> entity);
 
-    String getColumnNameModifier();
+    String getColumnName();
 
     default List<String> validValues(){return Collections.emptyList();}
+
 }

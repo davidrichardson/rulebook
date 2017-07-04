@@ -65,15 +65,6 @@ public class TestLocatorPath {
 
     @Before
    public void buildUp() throws URISyntaxException, IOException {
-
-        URL docUrl = this.getClass().getResource("/data/spaceship.entity.json");
-
-        Scanner scanner = new Scanner(docUrl.openStream(), "UTF-8");
-        StringBuilder buffer = new StringBuilder();
-
-        while(scanner.hasNext())
-            buffer.append(scanner.next());
-
-        document = buffer.toString();
+        document = TestHelper.loadStringFromResource("/data/spaceship.entity.json");
     }
 }

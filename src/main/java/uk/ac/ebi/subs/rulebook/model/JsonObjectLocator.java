@@ -39,4 +39,8 @@ public class JsonObjectLocator {
         return JsonPath.using(JSON_PATH_CONFIG).parse(document).read(path);
     }
 
+    public boolean isDefinite(){
+        return JsonPath.isPathDefinite(path);
+    }
+
 }

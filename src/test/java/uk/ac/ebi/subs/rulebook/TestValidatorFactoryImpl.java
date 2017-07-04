@@ -31,7 +31,7 @@ public class TestValidatorFactoryImpl implements ValidatorFactory {
             }
 
             @Override
-            public String getColumnNameModifier() {
+            public String getColumnName() {
                 return "";
             }
         };

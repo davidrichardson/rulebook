@@ -43,7 +43,7 @@ public class FreeTextValueValidator implements Validator {
     }
 
     @Override
-    public String getColumnNameModifier() {
+    public String getColumnName() {
         return config.getColumnNameModifier();
     }
 }

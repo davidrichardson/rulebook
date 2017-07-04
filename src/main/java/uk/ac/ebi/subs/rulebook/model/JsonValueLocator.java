@@ -44,4 +44,8 @@ public class JsonValueLocator {
                 .collect(Collectors.toList());
     }
 
+    public boolean isDefinite(){
+        return JsonPath.isPathDefinite(path);
+    }
+
 }

@@ -30,7 +30,7 @@ public class TemplateBuilder {
             for (Rule rule : ruleGroup.getRules()){
                 for (Validator validator : rule.getValidators()) {
 
-                    String columnName = rule.getName() + validator.getColumnNameModifier();
+                    String columnName = rule.getName() + validator.getColumnName();
 
                     Cell cell = headerRow.createCell(cellPos);
                     cell.setCellValue(columnName);

@@ -55,7 +55,7 @@ public class IntegerValidator implements Validator {
     }
 
     @Override
-    public String getColumnNameModifier() {
+    public String getColumnName() {
         return config.getColumnNameModifier();
     }
 }
