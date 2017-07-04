@@ -2,24 +2,37 @@ package uk.ac.ebi.subs.rulebook;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.Option;
+import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
+import com.jayway.jsonpath.spi.json.JsonProvider;
+import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
+import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import net.minidev.json.JSONArray;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by davidr on 04/07/2017.
  */
 public class SettingJsonTest {
 
-    private Object expected;
+
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     public void makeADoc() throws JsonProcessingException {
+
+        /**
+         * JayWay JSONPath doesn't let you create new keys, so we need something in the document to work with
+         */
         String template = objectMapper.writeValueAsString(new SpaceShip());
 
         DocumentContext documentContext = JsonPath.parse(template);
@@ -27,6 +40,10 @@ public class SettingJsonTest {
         documentContext.set("$.serialNumber", "BS-75");
 
         JSONArray attributes = new JSONArray();
+
+        /**
+         * If you don't call .json() on the DocumentContexts, JSON path just adds '{}'
+         */
         attributes.add(makeAttribute("crew_capacity", "3000").json());
         attributes.add(makeAttribute("passenger_capacity", "0").json());
 
